@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MagiScript Library</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script defer src="script.js"></script>
+</head>
+<body>
+    <h1>Welcome to The MagiScript Library of <span id="wizard-name">Mexyll the Magnificent</span></h1>
+    
+    <div class="bookshelf">
+        <button class="book" data-book="change-password-book">Change Password</button>
+        <button class="book" data-book="change-name-book">Change Name</button>
+        <button class="book" data-book="summon-familiar-book">Summon Familiar</button>
+    </div>
+    
+    <div id="change-password-book" class="spell-book hidden">
+        <h2>Change Password</h2>
+        <form id="change-password-form">
+            <input type="text" id="username" placeholder="Username" required>
+            <input type="password" id="new-password" placeholder="New Password" required>
+            <input type="password" id="confirm-password" placeholder="Confirm New Password" required>
+            <button type="submit">Submit</button>
+        </form>
+        <p id="password-message"></p>
+    </div>
+    
+    <div id="change-name-book" class="spell-book hidden">
+        <h2>Change Wizard Name</h2>
+        <form id="rename-wizard-form">
+            <input type="text" id="new-name" placeholder="New Name" required>
+            <input type="text" id="new-title" placeholder="New Title" required>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+    
+    <div id="summon-familiar-book" class="spell-book hidden">
+        <h2>Summon Familiar</h2>
+        <form id="summon-form">
+            <input type="text" id="familiar-name" placeholder="Familiar Name" required>
+            <input type="text" id="familiar-type" placeholder="Base Type (e.g., Dragon)">
+            <label><input type="checkbox" id="has-wings"> Has Wings?</label>
+            <input type="text" id="wing-type" class="hidden" placeholder="Type of Wings">
+            <button type="submit">Summon</button>
+        </form>
+    </div>
+    
+    <button id="close-tome">Close Book</button>
+</body>
+</html>
