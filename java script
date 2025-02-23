@@ -1,0 +1,54 @@
+$(document).ready(function () {
+    $(".spell-book").click(function () {
+        $(".hidden").addClass("hidden"); 
+        let bookId = $(this).data("book");
+        $("#" + bookId).removeClass("hidden");
+    });
+
+    $("#close-tome").click(function () {
+        $(".hidden").addClass("hidden");
+    });
+
+    $("#change-password-form").submit(function (event) {
+        event.preventDefault();
+        let password = $("#new-password").val();
+        let confirmPassword = $("#confirm-password").val();
+
+        if (password === confirmPassword) {
+            $("#password-message").text("Password changed successfully!").css("color", "green");
+        } else {
+            $("#password-message").text("Passwords do not match!").css("color", "red");
+        }
+    });
+
+    $("#rename-wizard-form").submit(function (event) {
+        event.preventDefault();
+        let newName = $("#new-name").val();
+        let newTitle = $("#new-title").val();
+
+        if (newName && newTitle) {
+            $("#wizard-name").text(newName);
+            $("#wizard-title").text(newTitle);
+        }
+    });
+
+    $("#summon-form").submit(function (event) {
+        event.preventDefault();
+        let name = $("#familiar-name").val();
+        let type = $("#familiar-type").val();
+        let hasWings = $("#has-wings").is(":checked");
+        let wingsType = hasWings ? $("#wings-type").val() : "";
+        let description = `You have summoned: ${name}, a ${type}`;
+        if (hasWings) description += ` with ${wingsType} wings.`;
+
+        $("#familiar-message").text(description);
+    });
+
+    $("#has-wings").change(function () {
+        if ($(this).is(":checked")) {
+            $("#wings-type-label").removeClass("hidden");
+        } else {
+            $("#wings-type-label").addClass("hidden");
+        }
+    });
+});
